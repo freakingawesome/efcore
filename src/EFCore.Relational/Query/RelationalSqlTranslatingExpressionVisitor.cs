@@ -1797,7 +1797,7 @@ public class RelationalSqlTranslatingExpressionVisitor : ExpressionVisitor
                                         CreatePropertyAccessExpression(nonNullEntityReference, p),
                                         Expression.Constant(null, p.ClrType.MakeNullable()),
                                         nodeType != ExpressionType.Equal))
-                                .Aggregate((l, r) => nodeType == ExpressionType.Equal ? Expression.OrElse(l, r) : Expression.AndAlso(l, r));
+                                .Aggregate((l, r) => nodeType == ExpressionType.Equal ? Expression.AndAlso(l, r) : Expression.OrElse(l, r));
 
                             condition = condition == null
                                 ? atLeastOneNonNullValueInNullablePropertyCondition
